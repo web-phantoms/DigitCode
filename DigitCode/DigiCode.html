@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>DigitCode</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+      flex-direction: column;
+    }
+
+    #code {
+      color: red;
+    }
+
+    .codespace {
+      margin-top: 30px;
+      font-size: 16px;
+    }
+
+    .special {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      opacity: 1;
+      visibility: visible;
+      transition: all 0.3s ease;
+
+    }
+
+    .special i {
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .special.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="">
+    <div id="code-block" class="special hidden">
+      Your DigitCode : <span id="code"></span>
+    </div>
+    <div id="demo1"></div>
+    <div class="codespace">
+      <pre>DigitCode({
+   id: "#demo1",
+   type: "password",
+   count: 4,
+ }, (value) => {
+     console.log(value);
+ });</pre>
+    </div>
+    <div id="demo2"></div>
+    <div class="codespace">
+      <pre>DigitCode({
+   id: "#demo2",
+   type: "number",
+   count: 6,
+ }, (value) => {
+     console.log(value);
+ });</pre>
+    </div>
+    <div id="demo3"></div>
+    <div class="codespace">
+      <pre>DigitCode({
+   id: "#demo3",
+   type: "text",
+   count: 9,
+ }, (value) => {
+     console.log(value);
+ });</pre>
+    </div>
+  </div>
+
+
+  <script type="module">
+    import DigitCode from './DigitCode.js';
+
+
+
+    var codeBlock = document.getElementById("code-block");
+    var code = document.getElementById("code");
+
+    DigitCode({
+      id: "#demo1",
+      type: "password",
+      count: 4,
+    }, (value) => {
+      codeBlock.classList.remove("hidden");
+      code.innerText = value;
+    });
+
+    DigitCode({
+      id: "#demo2",
+      type: "number",
+      count: 6,
+    }, (value) => {
+      codeBlock.classList.remove("hidden");
+      code.innerText = value;
+    });
+
+    DigitCode({
+      id: "#demo3",
+      type: "text",
+      count: 9,
+    }, (value) => {
+      codeBlock.classList.remove("hidden");
+      code.innerText = value;
+    });
+
+  </script>
+</body>
+
+</html>
